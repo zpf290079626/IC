@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
 
 public class DateUtil {
 	public final static String dateFormat = "yyyy.MM.dd HH:mm:ss";// "yyyy-MM-dd";
-
+	public static final long oneHour = 3600000;//60*60*1000
 
 	public static String getMachingCurrentTime() {
 		Date now = new Date();
@@ -1097,4 +1097,12 @@ public class DateUtil {
 		returnValue = DateUtil.getDateString(returnDate);
 		return returnValue;
 	}
+	
+	public static long getDiffHours(Date start, Date end) {
+	       
+        long diff = end.getTime() - start.getTime();
+        long dffHours = diff/DateUtil.oneHour;
+
+        return dffHours;
+    }
 }

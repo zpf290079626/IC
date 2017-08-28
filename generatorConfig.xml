@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!--classPathEntry:数据库的JDBC驱动 -->
+
+	<classPathEntry
+		location="D:/maven/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar" />
+	<context id="generator" targetRuntime="MyBatis3">
+		<!-- 注意这里面的顺序确定的，不能随变更改 -->
+		<!-- 自定义的分页插件 <plugin type="com.deppon.foss.module.helloworld.shared.PaginationPlugin"/> -->
+
+		<!-- 可选的（0 or 1） -->
+		<!-- 注释生成器 -->
+		<commentGenerator>
+			<!-- 是否去掉注释 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!-- 必须的（1 required） -->
+		<!-- 数据库连接 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.200.247:3306/APP_IC"
+			userId="root" password="290079626">
+		</jdbcConnection>
+
+		<!-- 可选的（0 or 1） -->
+		<!-- 类型转换器或者加类型解析器 -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+
+		<!-- 必须的（1 required） -->
+		<!-- java模型生成器 -->
+		<!-- targetProject:自动生成代码的位置 -->
+		<javaModelGenerator targetPackage="domain"
+			targetProject="E:\SSQ_Portal_workspace\facade-ssq\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+
+		<!-- 必须的（1 required） -->
+		<!-- map xml 生成器 -->
+		<sqlMapGenerator targetPackage="mybatis.mapper"
+			targetProject="E:/SSQ_Portal_workspace/service-ssq/src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+
+		<!-- 可选的（0 or 1） -->
+		<!-- mapper 或者就是dao接口生成器 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="sys.dao" 
+			targetProject="E:/SSQ_Portal_workspace/service-ssq/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<!-- 必须的（1...N） -->
+
+		<!-- pojo 实体生成器 -->
+		<!-- tableName:用于自动生成代码的数据库表; -->
+		<!-- domainObjectName:对应于数据库表的javaBean类名 -->
+		<table tableName="ACTIVE_FLAG" domainObjectName="ActiveFlagDomain"
+			enableInsert="true">
+		</table>
+	</context>
+	</generatorConfiguration>
